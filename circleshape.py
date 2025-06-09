@@ -4,7 +4,9 @@ import pygame
 class CircleShape(pygame.sprite.Sprite):
     def __init__(self, x, y, radius):
         if hasattr(self, "containers"):
-            super().__init__(self.containers)
+            super().__init__(
+                self.containers  # pyright: ignore[reportAttributeAccessIssue]
+            )
         else:
             super().__init__()
 
@@ -17,3 +19,9 @@ class CircleShape(pygame.sprite.Sprite):
 
     def update(self, dt):
         pass
+
+    def check_collision(self, other):
+        distance = self.position.distance_to(other.position)
+        radii = self.radius + other.radius
+
+        return distance < radii
