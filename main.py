@@ -20,10 +20,10 @@ def main():
 
     # assign entities to groups
     # pyright would need ClassVar definition, but we ignore this error for now
-    Player.containers = (updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
-    Asteroid.containers = (asteroid_grp, updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
-    AsteroidField.containers = updatable  # pyright: ignore[reportAttributeAccessIssue]
-    Shot.containers = (shot_grp, updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
+    Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroid_grp, updatable, drawable)
+    AsteroidField.containers = updatable
+    Shot.containers = (shot_grp, updatable, drawable)
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
